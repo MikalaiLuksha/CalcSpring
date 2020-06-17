@@ -1,7 +1,12 @@
-package tms;
+package tms.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import tms.entity.Operation;
+import tms.action.CalcAction;
+import tms.service.CalcService;
+import tms.service.Reader;
+import tms.service.Writen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +20,7 @@ public class Config {
     };
 
     @Bean
-    CalcAction calcAction ( Writen writen, Reader reader, CalcService calcService){
+    CalcAction calcAction (Writen writen, Reader reader, CalcService calcService){
         return new CalcAction(writen, reader, calcService);
     }
 

@@ -1,8 +1,9 @@
-package tms;
+package tms.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tms.service.CalcService;
 
 @Data
 @AllArgsConstructor
@@ -15,4 +16,10 @@ public class Operation {
     private  double res;
     private String operationCalc;
 
+    @Override
+    public String toString() {
+
+        return num1 + " " + operationCalc + " " + num2 + " = " + res;
+
+    }
 }
