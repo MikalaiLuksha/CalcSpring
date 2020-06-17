@@ -1,11 +1,11 @@
-package tms;
+package tms.service;
 
 import org.springframework.stereotype.Component;
 
 
-class Writen {
+public class Writen {
 
-    void writen(Object message){
+    public void writen(Object message){
         System.out.println(message);
     }
 }

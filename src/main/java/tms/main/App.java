@@ -1,7 +1,8 @@
-package tms;
+package tms.main;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import tms.action.CalcAction;
 
 /**
  * Hello world!
