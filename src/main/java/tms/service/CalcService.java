@@ -2,6 +2,7 @@ package tms.service;
 
 import tms.entity.Operation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -42,7 +43,7 @@ public class CalcService {
     }
 
     public List getHistory() {
-        return operations;
+        return new ArrayList<>(operations);
     }
 
     public boolean checkOperation(String operation) {

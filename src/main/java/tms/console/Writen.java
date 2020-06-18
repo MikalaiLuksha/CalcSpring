@@ -1,4 +1,4 @@
-package tms.service;
+package tms.console;
 
 import org.springframework.stereotype.Component;
 
