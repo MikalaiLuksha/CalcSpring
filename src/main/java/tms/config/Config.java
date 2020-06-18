@@ -6,7 +6,7 @@ import tms.entity.Operation;
 import tms.action.CalcAction;
 import tms.service.CalcService;
 import tms.console.Reader;
-import tms.console.Writen;
+import tms.console.Writer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +20,8 @@ public class Config {
     };
 
     @Bean
-    CalcAction calcAction (Writen writen, Reader reader, CalcService calcService){
-        return new CalcAction(writen, reader, calcService);
+    CalcAction calcAction (Writer writer, Reader reader, CalcService calcService){
+        return new CalcAction(writer, reader, calcService);
     }
 
     @Bean
@@ -30,8 +30,8 @@ public class Config {
     }
 
     @Bean
-    Writen writen (){
-        return new Writen();
+    Writer writen (){
+        return new Writer();
     }
 
     @Bean

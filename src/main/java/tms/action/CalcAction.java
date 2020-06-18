@@ -3,7 +3,7 @@ package tms.action;
 
 import tms.service.CalcService;
 import tms.console.Reader;
-import tms.console.Writen;
+import tms.console.Writer;
 
 import java.util.List;
 
@@ -11,12 +11,12 @@ import java.util.List;
 public class CalcAction {
 
 
-    private Writen writen;
+    private Writer writer;
     private Reader reader;
     private CalcService calcService;
 
-    public CalcAction(Writen writen, Reader reader, CalcService calcService) {
-        this.writen = writen;
+    public CalcAction(Writer writer, Reader reader, CalcService calcService) {
+        this.writer = writer;
         this.reader = reader;
         this.calcService = calcService;
     }
@@ -25,21 +25,21 @@ public class CalcAction {
 
         boolean b = true;
         while (b) {
-            writen.writen("Выберите операцию: sum - 1 / minus -2 / div - 3 / times -4 ");
+            writer.writer("Выберите операцию: sum - 1 / minus -2 / div - 3 / times -4 ");
             String operation = reader.readerOperation();
             if (calcService.checkOperation(operation)) {
                 double num1 = firstNum();
                 double num2 = secondNum();
                  double res = calcService.calc(operation, num1, num2);
-                writen.writen("Ваш результат " + res);
-                writen.writen("Выберите: продолжить - 1 / история - 2");
+                writer.writer("Ваш результат " + res);
+                writer.writer("Выберите: продолжить - 1 / история - 2");
                 String choice = reader.readerOperation();
                 if (choice.equals("2")) {
                     b = history();
                }
             }
             else {
-                writen.writen("Error. Choose again");
+                writer.writer("Error. Choose again");
             }
         }
     }
@@ -47,7 +47,7 @@ public class CalcAction {
     private double firstNum (){
         boolean b = true;
         while (b) {
-            writen.writen("Введите первое число");
+            writer.writer("Введите первое число");
             String num = reader.readerDouble();
             try {
                 double num1 = Double.parseDouble(num);
@@ -55,7 +55,7 @@ public class CalcAction {
                 return num1;
         }
             catch (NumberFormatException e){
-            writen.writen("Incorrect number");
+            writer.writer("Incorrect number");
             }
         }
         return 0;
@@ -64,7 +64,7 @@ public class CalcAction {
     private double secondNum (){
         boolean b = true;
         while (b) {
-            writen.writen("Введите второе число");
+            writer.writer("Введите второе число");
             String num = reader.readerDouble();
             try {
                 double num2 = Double.parseDouble(num);
@@ -72,7 +72,7 @@ public class CalcAction {
                 return num2;
             }
             catch (NumberFormatException e){
-                writen.writen("Incorrect number");
+                writer.writer("Incorrect number");
             }
         }
         return 0;
@@ -81,7 +81,7 @@ public class CalcAction {
     private boolean history(){
         List history = calcService.getHistory();
         for (Object o : history) {
-            writen.writen(o);
+            writer.writer(o);
         }
         return false;
     }

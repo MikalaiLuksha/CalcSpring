@@ -47,12 +47,10 @@ public class CalcService {
     }
 
     public boolean checkOperation(String operation) {
-        if (operation.equals("1") || operation.equals("2") || operation.equals("3") || operation.equals("4")) {
-            return true;
-        } else return false;
+        return operation.equals("1") || operation.equals("2") || operation.equals("3") || operation.equals("4");
     }
 
-    public String symbol(String operation) {
+    private String symbol(String operation) {
 
         switch (operation) {
             case ("1"):
